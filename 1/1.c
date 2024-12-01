@@ -18,12 +18,23 @@ int main() {
   qsort(leftArr, n, sizeof(int), compare);
   qsort(rightArr, n, sizeof(int), compare);
 
-  long int distance = 0;
+  int distance = 0;
 
   for (int i = 0; i < n; i++) {
     distance += abs(leftArr[i] - rightArr[i]);
   }
-  printf("Distance: %ld", distance);
+  printf("Distance: %d\n", distance);
+
+  int similarity = 0;
+
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < n; j++) {
+      if (leftArr[i] == rightArr[j]) {
+        similarity += leftArr[i];
+      }
+    }
+  }
+  printf("Similarity: %d\n", similarity);
 
   free(leftArr);
   free(rightArr);
